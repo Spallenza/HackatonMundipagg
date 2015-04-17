@@ -1,0 +1,28 @@
+Perguntas para todos os testes:
+
+1)CreditCardTransactionResultCount
+2)AcquirerName *Lembrando que o nome da adquirente vem no vampo AcquirerMessage e é o nome antes do |
+3)TransactionKey
+4)CreditCardTransactionStatusEnum
+5)Success
+6)InstantBuyKey
+7)UniqueSequentialNumber
+8)AmountInCents
+
+Adicional para o teste de AuthOnly e AuthAndCapture
+9)AuthorizedAmountInCents
+
+Adicional para o teste e AuthAndCapture e ManageOrder Capture
+10)CapturedAmountInCents
+
+Adicional para o teste de MangerOrder Void
+11)VoidedInCents
+
+Adicional para o teste de ManagerOrder Void(refund transações antigas)
+12)RefundedAmountInCents
+
+
+
+
+
+
