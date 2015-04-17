@@ -24,8 +24,8 @@ namespace Hackaton.Core {
             ITest test = IocFactory.ResolveByName<ITest>(testRequest.TestId);
 
             TestResponse response = new TestResponse();
-            
-            return test.Execute();
+
+            return test.Execute(testRequest);
 
 
         }

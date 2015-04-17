@@ -13,7 +13,8 @@ namespace Hackaton.Core.Tests {
        
        }
 
-       public abstract TestResponse Execute();
-
+       public TestResponse Execute(TestRequest testRequest) {
+           throw new NotImplementedException();
+       }
    }
 }

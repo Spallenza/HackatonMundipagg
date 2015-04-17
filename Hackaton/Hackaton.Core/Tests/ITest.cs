@@ -10,6 +10,6 @@ namespace Hackaton.Core.Tests {
 
         string GetTestId();
 
-        TestResponse Execute();
+        TestResponse Execute(TestRequest testRequest);
     }
 }
