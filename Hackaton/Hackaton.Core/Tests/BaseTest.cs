@@ -6,15 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Hackaton.Core.Tests {
-   public class BaseTest : ITest {
+   public abstract class BaseTest : ITest {
 
        public string GetTestId() {
            throw new NotImplementedException();
        
        }
 
-       public TestResponse Execute() {
-           throw new NotImplementedException();
-       }
+       public abstract TestResponse Execute();
+
    }
 }
