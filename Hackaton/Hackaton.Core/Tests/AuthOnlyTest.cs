@@ -6,5 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hackaton.Core.Tests {
     public class AuthOnlyTest : BaseTest {
+
+
     }
 }
