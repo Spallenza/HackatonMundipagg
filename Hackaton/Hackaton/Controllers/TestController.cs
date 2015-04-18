@@ -20,7 +20,7 @@ namespace Hackaton.Controllers {
         /// <param name="test"></param>
         /// <returns></returns>
         [HttpPost]
-        [Route(@"Test")]
+        [Route(@"")]
         [ResponseType(typeof(TestResponse))]
         public HttpResponseMessage PostAccount([FromBody]TestRequest testRequest) {
 

@@ -14,16 +14,17 @@ namespace Hackaton.Core.Repository {
         private IConfigurationUtility utility;
 
         private const string GET_MERCHANTORDERID_QUERY =
-            @"SELECT MerchantOrderId FROM CreditCardTransaction 
+            @"SELECT MerchantOrder.MerchantOrderId FROM CreditCardTransaction 
+            INNER JOIN MerchantOrder ON MerchantOrder.MerchantOrderId = CreditCardTransaction.MerchantOrderId
             INNER JOIN Merchant ON Merchant.MerchantId = MerchantOrder.MerchantId
             WHERE 
-            MerchantKey = merchantKey
-            AND CrediCardTransactionKey = @CreditCardTransactionKey";
+            MerchantKey = @merchantKey
+            AND CreditCardTransactionKey = @CreditCardTransactionKey";
 
 
         private const string GET_CREDITCARDTRANSACTIONDATA_QUERY = 
             @"SELECT
-            CreditCardTransactionKey as TransactionKey, CreditCardTransactionStatusEnum, InstantBuyKey, CreditCardTransactionReference as TransactionReference
+            CreditCardTransactionKey as TransactionKey, CreditCardTransactionStatusEnum, InstantBuyKey, TransactionReference,
             UniqueSequentialNumber, AmountInCents, AuthorizedAmountInCents, CapturedAmountInCents 
             VoidedInCents, RefundedAmountInCents 
             FROM CreditCardTransaction
@@ -49,7 +50,7 @@ namespace Hackaton.Core.Repository {
               merchantOrderId = Convert.ToInt64(dbConnector.ExecuteReader<long>(GET_MERCHANTORDERID_QUERY, new {
                     CreditCardTransactionKey = creditCardTransactionKey,
                     MerchantKey = merchantKey
-                }));
+                }).FirstOrDefault());
             }
 
             return merchantOrderId;
