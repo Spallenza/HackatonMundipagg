@@ -28,6 +28,12 @@ namespace Hackaton.Core.Repository.Entity {
         public string CreditCardTransactionStatusEnum { get; set; }
 
         /// <summary>
+        /// Status da transação
+        /// </summary>
+        public string CreditCardOperationEnum { get; set; }
+
+
+        /// <summary>
         /// Quantidade de Parcelas
         /// </summary>
         public int InstallmentCount { get; set; }

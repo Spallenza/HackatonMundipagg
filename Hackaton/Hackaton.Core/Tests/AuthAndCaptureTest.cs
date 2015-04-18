@@ -53,14 +53,14 @@ namespace Hackaton.Core.Tests {
                 AddErrorReport(this.ErrorReportColllection, "AmountInCents", "AmountInCents está errado.");
             }
 
-            else if (testRequest.AuthorizedAmountInCents != creditCardTransactionData.AuthorizedAmountInCents.ToString()) {
-                AddErrorReport(this.ErrorReportColllection, "AuthorizedAmountInCents", "AuthorizedAmountInCents está errado.");
-            }
-            else if (testRequest.CapturedAmountInCents != creditCardTransactionData.CapturedAmountInCents.ToString()) {
-                AddErrorReport(this.ErrorReportColllection, "CapturedAmountInCents", "CapturedAmountInCents está errado.");
-            }
             else if (testRequest.CreditCardTransactionStatusEnum != creditCardTransactionData.CreditCardTransactionStatusEnum) {
                 AddErrorReport(this.ErrorReportColllection, "CreditCardTransactionStatusEnum", "CreditCardTransactionStatusEnum errado.");
+            }
+            else if (testRequest.InstallmentCount != creditCardTransactionData.InstallmentCount.ToString()) {
+                AddErrorReport(this.ErrorReportColllection, "InstallmentCount", "InstallmentCount errado.");
+            }
+            else if (testRequest.CreditCardOperationEnum != creditCardTransactionData.CreditCardOperationEnum) {
+                AddErrorReport(this.ErrorReportColllection, "CreditCardOperationEnum", "CreditCardOperationEnum errado.");
             }
 
             if (this.ErrorReportColllection.Any() == true) {
