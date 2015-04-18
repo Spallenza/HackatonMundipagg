@@ -53,9 +53,6 @@ namespace Hackaton.Core.Tests {
                 AddErrorReport(this.ErrorReportColllection, "AmountInCents", "AmountInCents está errado.");
             }
 
-            else if (testRequest.VoidedAmountInCents != creditCardTransactionData.VoidedAmountInCents) {
-                AddErrorReport(this.ErrorReportColllection, "VoidedAmountInCents", "VoidedAmountInCents está errado.");
-            }
             else if (testRequest.CreditCardTransactionStatusEnum != creditCardTransactionData.CreditCardTransactionStatusEnum) {
                 AddErrorReport(this.ErrorReportColllection, "CreditCardTransactionStatusEnum", "CreditCardTransactionStatusEnum errado.");
             }

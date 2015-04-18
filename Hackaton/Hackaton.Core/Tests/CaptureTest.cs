@@ -53,12 +53,6 @@ namespace Hackaton.Core.Tests {
                 AddErrorReport(this.ErrorReportColllection, "AmountInCents", "AmountInCents está errado.");
             }
 
-            else if (testRequest.AuthorizedAmountInCents != creditCardTransactionData.AuthorizedAmountInCents.ToString()) {
-                AddErrorReport(this.ErrorReportColllection, "AuthorizedAmountInCents", "AuthorizedAmountInCents está errado.");
-            }
-            else if (testRequest.CapturedAmountInCents != creditCardTransactionData.CapturedAmountInCents.ToString()) {
-                AddErrorReport(this.ErrorReportColllection, "CapturedAmountInCents", "CapturedAmountInCents está errado.");
-            }
             else if (testRequest.CreditCardTransactionStatusEnum != creditCardTransactionData.CreditCardTransactionStatusEnum) {
                 AddErrorReport(this.ErrorReportColllection, "CreditCardTransactionStatusEnum", "CreditCardTransactionStatusEnum errado.");
             }
@@ -85,20 +79,12 @@ namespace Hackaton.Core.Tests {
                 AddErrorReport(this.ErrorReportColllection, "AmountInCents", "AmountInCents está errado.");
             }
 
-            else if (testRequest.AuthorizedAmountInCents != creditCardTransactionData.AuthorizedAmountInCents.ToString()) {
-                AddErrorReport(this.ErrorReportColllection, "AuthorizedAmountInCents", "AuthorizedAmountInCents está errado.");
-            }
-
             else if (testRequest.CapturedAmountInCents != creditCardTransactionData.CapturedAmountInCents.ToString()) {
                 AddErrorReport(this.ErrorReportColllection, "CapturedAmountInCents", "CapturedAmountInCents está errado.");
             }
-
+           
             else if (testRequest.CreditCardTransactionResultCount != creditCardTransactionDataCollection.Count().ToString()) {
                 AddErrorReport(this.ErrorReportColllection, "CreditCardTransactionResultCount", "O número de transações no response está errado.");
-            }
-
-            else if (testRequest.InstantBuyKey != creditCardTransactionData.InstantBuyKey.ToString()) {
-                AddErrorReport(this.ErrorReportColllection, "InstantBuyKey", "InstantBuyKey errado.");
             }
 
             else if (testRequest.UniqueSequentialNumber != creditCardTransactionData.UniqueSequentialNumber) {
