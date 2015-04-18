@@ -1,14 +1,19 @@
-﻿using System;
+﻿using Dlp.Framework.Container;
+using Hackaton.Core.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Hackaton.Core.Repository {
-    public class TestRepository : BaseRepository, ITestRepository {
+    public class TestRepository : ITestRepository {
 
-        public TestRepository(string connectionString)
-            : base(connectionString) {
+        private IConfigurationUtility utility;
+
+        public TestRepository() {
+
+            utility = IocFactory.Resolve<IConfigurationUtility>();
 
         }
 
