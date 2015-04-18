@@ -26,7 +26,7 @@ namespace Hackaton.Core.Repository {
             @"SELECT
             CreditCardTransactionKey as TransactionKey, CreditCardTransactionStatusEnum, InstantBuyKey, TransactionReference,
             UniqueSequentialNumber, AmountInCents, AuthorizedAmountInCents, CapturedAmountInCents 
-            VoidedInCents, RefundedAmountInCents, CreditCardOperationEnum
+            VoidedInCents, RefundedAmountInCents, CreditCardOperationEnum, InstallmentCount
             FROM CreditCardTransaction
             INNER JOIN CreditCard ON CreditCard.CreditCardId = CreditCardTransaction.CreditCardId
             WHERE

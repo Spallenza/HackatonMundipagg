@@ -61,6 +61,10 @@ namespace Hackaton.Core.Tests {
                 AddErrorReport(this.ErrorReportColllection, "CreditCardTransactionStatusEnum", "CreditCardTransactionStatusEnum errado.");
             }
 
+            else if (testRequest.InstallmentCount != creditCardTransactionData.InstallmentCount.ToString()) {
+                AddErrorReport(this.ErrorReportColllection, "CreditCardTransactionStatusEnum", "CreditCardTransactionStatusEnum errado.");
+            }
+
             if (this.ErrorReportColllection.Any() == true) {
                 response.Success = false;
             }

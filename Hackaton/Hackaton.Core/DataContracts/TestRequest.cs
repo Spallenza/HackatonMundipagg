@@ -48,6 +48,11 @@ namespace Hackaton.Core.DataContracts {
         public string CreditCardTransactionStatusEnum { get; set; }
 
         /// <summary>
+        /// Quantidade de Parcelas
+        /// </summary>
+        public string InstallmentCount { get; set; }
+
+        /// <summary>
         /// Valor do Success
         /// </summary>
         public string Success { get; set; }
