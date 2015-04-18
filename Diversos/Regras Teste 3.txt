@@ -1,0 +1,37 @@
+Test 3) - Homologação de Transação ManageOrder Capture
+
+Primeiro Passo:
+
+Campos que irão aparecer para o usuário
+
+	TransactionReference -> string gerada randomicamente entre 10 e 20 caracteres
+	AmountInCents -> Número gerado randomicamente entre 1000 e 50000
+	
+
+Campos enviados no request
+	
+	MerchantKey
+	TestId
+	TestStep
+	CreditCardTransactionStatusEnum
+	TransactionReference
+	AmountInCents
+	
+Segundo Passo:
+
+Perguntas para o usuário:
+
+1)Quantas transações voltaram na coleção CreditCardTransactionResultCollection? (CreditCardTransactionResultCount)
+2)Qual foi o valor do response para o campo *AmountInCents* da última transação? (AmountInCents)
+3)Qual foi o valor do response para o campo *CapturedAmountInCents* da última transação? (CapturedAmountInCents)
+5)Qual foi o valor do response para o campo  *CreditCardTransactionStatusEnum* da última transação? (CreditCardTransactionStatusEnum)
+6)Qual foi o valor do response para o campo  *UniqueSequentialNumber* da última transação? (UniqueSequentialNumber)
+
+Campos enviados no request:
+	MerchantKey
+	TestId
+	CreditCardTransactionResultCount
+	AmountInCents
+	CapturedAmountInCents
+	CreditCardTransactionStatusEnum
+	UniqueSequentialNumber
