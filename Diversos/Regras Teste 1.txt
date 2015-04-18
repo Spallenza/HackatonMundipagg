@@ -10,14 +10,27 @@ Campos que irão aparecer para o usuário
 
 Campos enviados no request
 	
-	MerchantKey
-	TestId
-	TestStep
-	AuthorizedAmountInCents
-	CreditCardTransactionStatusEnum
-	TransactionReference
-	AmountInCents
-	InstallmentCount
+	MerchantKey = '8A2DD57F-1ED9-4153-B4CE-69683EFADAD5'
+	TestId = '1'
+	TestStep = '1'
+	AuthorizedAmountInCents = '20000'
+	CreditCardTransactionStatusEnum = 'AuthorizedPendingCapture'
+	TransactionReference = '58695c49-f56c-453e-a'
+	TransactionKey = '069F5CFB-542D-4D52-A09C-A2406BC8EDC6'
+	AmountInCents = '20000'
+	InstallmentCount = '10'
+	
+	{
+  
+
+  "InstantBuyKey":"77CDA6DD-0810-40D5-934A-6E0A6B069837",
+  "UniqueSequentialNumber":"546573",
+  "AmountInCents":"20000",
+  "AuthorizedAmountInCents":"20000",
+  "TransactionReference":"58695c49-f56c-453e-a",
+  
+
+}
 	
 Segundo Passo:
 
@@ -31,14 +44,15 @@ Perguntas para o usuário:
 6)Qual foi o valor do response para o campo  *UniqueSequentialNumber* da última transação? (UniqueSequentialNumber)
 
 Campos enviados no request:
-	MerchantKey
-	TestId
-	CreditCardTransactionResultCount
-	AmountInCents
-	AuthorizedAmountInCents
-	InstantBuyKey
-	CreditCardTransactionStatusEnum
-	UniqueSequentialNumber
+	MerchantKey = '8A2DD57F-1ED9-4153-B4CE-69683EFADAD5'
+	TestId = '1'
+	TestStep = '2'
+	CreditCardTransactionResultCount = '1'
+	AmountInCents = 20000
+	AuthorizedAmountInCents = 20000
+	InstantBuyKey = "77CDA6DD-0810-40D5-934A-6E0A6B069837"
+	CreditCardTransactionStatusEnum = 'AuthorizedPendingCapture'
+	UniqueSequentialNumber = '546573'
 
 
 

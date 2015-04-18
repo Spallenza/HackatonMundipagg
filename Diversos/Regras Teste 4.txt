@@ -10,12 +10,13 @@ Campos que irão aparecer para o usuário
 
 Campos enviados no request
 	
-	MerchantKey
-	TestId
-	TestStep
-	CreditCardTransactionStatusEnum
-	TransactionReference
-	AmountInCents
+	MerchantKey = 7FB00717-925C-4762-A36F-799E291F244D
+	TestId = 4
+	TestStep =1
+	TransactionKey = 278654B1-4170-45EB-86D5-75269EEF1083
+	CreditCardTransactionStatusEnum = Voided
+	TransactionReference = 12
+	AmountInCents = 100
 
 	
 Segundo Passo:
@@ -29,9 +30,13 @@ Perguntas para o usuário:
 
 
 Campos enviados no request:
-	MerchantKey
-	TestId
-	CreditCardTransactionResultCount
-	AmountInCents
-	VoidedAmountInCents
-	CreditCardTransactionStatusEnum
+	
+	MerchantKey = 4026A6CE-D184-406B-88C6-D5EE930AAC50
+	TestId = 4
+	TestStep = 2
+	CreditCardTransactionResultCount = 1
+	AmountInCents = 100000
+	VoidedAmountInCents = 100000
+	CreditCardTransactionStatusEnum = Voided
+	UniqueSequentialNumber = 125505
+	transactionKey = 278654B1-4170-45EB-86D5-75269EEF1083

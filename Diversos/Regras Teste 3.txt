@@ -10,12 +10,14 @@ Campos que irão aparecer para o usuário
 
 Campos enviados no request
 	
-	MerchantKey
-	TestId
-	TestStep
-	CreditCardTransactionStatusEnum
-	TransactionReference
-	AmountInCents
+	MerchantKey = 4026A6CE-D184-406B-88C6-D5EE930AAC50
+	TestId = 3
+	TestStep =1
+	CreditCardTransactionStatusEnum = Captured
+	TransactionReference = 12
+	AmountInCents = 100
+	transactionKey = 8B607231-973E-47FD-B087-1545313C43AE
+	
 	
 Segundo Passo:
 
@@ -28,10 +30,14 @@ Perguntas para o usuário:
 6)Qual foi o valor do response para o campo  *UniqueSequentialNumber* da última transação? (UniqueSequentialNumber)
 
 Campos enviados no request:
-	MerchantKey
-	TestId
-	CreditCardTransactionResultCount
-	AmountInCents
-	CapturedAmountInCents
-	CreditCardTransactionStatusEnum
-	UniqueSequentialNumber
+	
+	MerchantKey = 4026A6CE-D184-406B-88C6-D5EE930AAC50
+	TestId = 3
+	TestStep = 2
+	CreditCardTransactionResultCount = 1
+	AmountInCents = 100
+	CapturedAmountInCents = 100
+	CreditCardTransactionStatusEnum = Captured
+	UniqueSequentialNumber = 586320
+	transactionKey = 8B607231-973E-47FD-B087-1545313C43AE
+
