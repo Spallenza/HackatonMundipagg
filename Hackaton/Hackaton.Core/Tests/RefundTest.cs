@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Hackaton.Core.Tests {
     class RefundTest : BaseTest {
 
-        public override TestResponse Execute() {
+        public override TestResponse Execute(TestRequest testRequest) {
             throw new NotImplementedException();
         }
 

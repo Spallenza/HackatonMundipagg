@@ -52,6 +52,9 @@
     <Compile Include="DataContracts\TestRequest.cs" />
     <Compile Include="DataContracts\TestResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\ITestRepository.cs" />
+    <Compile Include="Repository\TestRepository.cs" />
     <Compile Include="TestsFactory.cs" />
     <Compile Include="Tests\AuthAndCaptureTest.cs" />
     <Compile Include="Tests\AuthOnlyTest.cs" />

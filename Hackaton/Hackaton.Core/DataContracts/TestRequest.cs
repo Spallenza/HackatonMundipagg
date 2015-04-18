@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Hackaton.Core.DataContracts {
-    public class TestRequest {
+    public  class TestRequest {
 
         /// <summary>
         /// Identificador do teste
