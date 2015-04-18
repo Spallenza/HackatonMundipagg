@@ -1,4 +1,5 @@
 ﻿using Hackaton.Core.DataContracts;
+using Hackaton.Core.Repository.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,9 @@ namespace Hackaton.Core.Tests {
        }
 
        public abstract TestResponse Execute(TestRequest testRequest);
+
+       public abstract TestResponse VerifyFirstStep(List<CreditCardTransactionData> creditCardTransactionData, TestRequest testRequest);
+
+       public abstract TestResponse VerifySecondStep(List<CreditCardTransactionData> creditCardTransactionData, TestRequest testRequest);
    }
 }

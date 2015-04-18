@@ -13,6 +13,11 @@ namespace Hackaton.Core.DataContracts {
         public string TestId { get; set; }
 
         /// <summary>
+        /// Identificador da parte do teste
+        /// </summary>
+        public string TestStep { get; set; }
+
+        /// <summary>
         /// Chave da loja
         /// </summary>
         public string MerchantKey { get; set; }
