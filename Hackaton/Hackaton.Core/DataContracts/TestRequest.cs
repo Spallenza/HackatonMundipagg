@@ -28,6 +28,11 @@ namespace Hackaton.Core.DataContracts {
         public string CreditCardTransactionResultCount { get; set; }
 
         /// <summary>
+        /// Referência do lojista para a transação
+        /// </summary>
+        public string TransactionReference { get; set; }
+
+        /// <summary>
         /// Chave da transação
         /// </summary>
         public string TransactionKey { get; set; }

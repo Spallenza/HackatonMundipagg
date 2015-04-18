@@ -41,15 +41,68 @@ namespace Hackaton.Core.Tests {
 
         }
 
-        public override TestResponse VerifyFirstStep(List<CreditCardTransactionData> creditCardTransactionData, TestRequest testRequest) {
+        public override TestResponse VerifyFirstStep(List<CreditCardTransactionData> creditCardTransactionDataCollection, TestRequest testRequest) {
 
             TestResponse response = new TestResponse();
+
+            CreditCardTransactionData creditCardTransactionData = creditCardTransactionDataCollection.LastOrDefault();
+
+            if (testRequest.TransactionReference != creditCardTransactionData.TransactionReference) {
+                AddErrorReport(this.ErrorReportColllection, "TransactionKey", "Não existe pedido para essa TransactionKey.");
+            }
+
+            else if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents) {
+                AddErrorReport(this.ErrorReportColllection, "TransactionKey", "Não existe pedido para essa TransactionKey.");
+            }
+
+            else if (testRequest.AuthorizedAmountInCents != creditCardTransactionData.AuthorizedAmountInCents) {
+                AddErrorReport(this.ErrorReportColllection, "TransactionKey", "Não existe pedido para essa TransactionKey.");
+            }
+
+            if (this.ErrorReportColllection.Any() == true) {
+                response.Success = false;
+            }
+
+            else {
+                response.Success = true;
+            }
             return response;
         }
 
-        public override TestResponse VerifySecondStep(List<CreditCardTransactionData> creditCardTransactionData, TestRequest testRequest) {
-            
+        public override TestResponse VerifySecondStep(List<CreditCardTransactionData> creditCardTransactionDataCollection, TestRequest testRequest) {
+
             TestResponse response = new TestResponse();
+
+            CreditCardTransactionData creditCardTransactionData = creditCardTransactionDataCollection.LastOrDefault();
+
+           if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents) {
+                AddErrorReport(this.ErrorReportColllection, "TransactionKey", "Não existe pedido para essa TransactionKey.");
+            }
+
+            else if (testRequest.AuthorizedAmountInCents != creditCardTransactionData.AuthorizedAmountInCents) {
+                AddErrorReport(this.ErrorReportColllection, "TransactionKey", "Não existe pedido para essa TransactionKey.");
+            }
+
+            else if (testRequest.CreditCardTransactionResultCount != creditCardTransactionDataCollection.Count().ToString()) {
+                AddErrorReport(this.ErrorReportColllection, "CreditCardTransactionResultCount", "O número de transações no response está errado.");
+            }
+            
+            else if (testRequest.InstantBuyKey != creditCardTransactionData.InstantBuyKey) {
+                AddErrorReport(this.ErrorReportColllection, "InstantBuyKey", "InstantBuyKey errado.");
+            }
+            
+            else if (testRequest.UniqueSequentialNumber != creditCardTransactionData.UniqueSequentialNumber) {
+                AddErrorReport(this.ErrorReportColllection, "NSU", "NSU Errado.");
+            }
+
+
+            if (this.ErrorReportColllection.Any() == true) {
+                response.Success = false;
+            }
+
+            else {
+                response.Success = true;
+            }
             return response;
         }
 
@@ -71,26 +124,30 @@ namespace Hackaton.Core.Tests {
                     
                 }
                 else {
-                    ErrorReport report = new ErrorReport();
 
-                    report.FieldName = "";
-                    report.Message = "Erro ao buscar as transações do pedido.";
-
-                    ErrorReportColllection.Add(report);
+                    AddErrorReport(this.ErrorReportColllection, "", "Erro ao buscar as transações do pedido.");
                 }
             }
             else {
-                ErrorReport report = new ErrorReport();
 
-                report.FieldName = "TransactionKey";
-                report.Message = "Não existe pedido para essa TransactionKey.";
-                ErrorReportColllection.Add(report);
+                AddErrorReport(this.ErrorReportColllection, "TransactionKey", "Não existe pedido para essa TransactionKey.");
+
             }
 
             return sucess;
         
         }
 
+
+        public void AddErrorReport(List<ErrorReport> ErrorReportColllection, string fieldName, string message) {
+            
+            ErrorReport errorReport = new ErrorReport();
+            errorReport.FieldName = fieldName;
+            errorReport.Message = message;
+
+            ErrorReportColllection.Add(errorReport);
+        
+        }
     }
 
     

@@ -23,7 +23,7 @@ namespace Hackaton.Core.Repository {
 
         private const string GET_CREDITCARDTRANSACTIONDATA_QUERY = 
             @"SELECT
-            CreditCardTransactionKey, CreditCardTransactionStatusEnum, InstantBuyKey, 
+            CreditCardTransactionKey as TransactionKey, CreditCardTransactionStatusEnum, InstantBuyKey, CreditCardTransactionReference as TransactionReference
             UniqueSequentialNumber, AmountInCents, AuthorizedAmountInCents, CapturedAmountInCents 
             VoidedInCents, RefundedAmountInCents 
             FROM CreditCardTransaction
