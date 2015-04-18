@@ -44,7 +44,7 @@ namespace Hackaton.Core.Repository {
         }
 
         public void GetCreditCardTransactionData(long merchantOrderId) {
-            throw new NotImplementedException();
+            
         }
     }
 }
