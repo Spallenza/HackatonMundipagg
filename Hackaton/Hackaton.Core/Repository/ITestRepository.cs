@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hackaton.Core.Repository.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace Hackaton.Core.Repository {
     public interface ITestRepository {
 
 
-        long GetMerchantOrderId(long merchantOrderId);
+        long GetMerchantOrderId(Guid creditCardTransactionKey, Guid merchantKey);
 
-        void GetCreditCardTransactionData(long merchantOrderId);
+        List<CreditCardTransactionData> GetCreditCardTransactionData(long merchantOrderId);
 
     }
 }

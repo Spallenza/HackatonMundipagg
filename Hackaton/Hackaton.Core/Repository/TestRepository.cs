@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dlp.Connectors;
 using Hackaton.Core.Utility;
 using Dlp.Framework.Container;
+using Hackaton.Core.Repository.Entity;
 
 namespace Hackaton.Core.Repository {
     public class TestRepository : ITestRepository {
@@ -14,10 +15,21 @@ namespace Hackaton.Core.Repository {
 
         private const string GET_MERCHANTORDERID_QUERY =
             @"SELECT MerchantOrderId FROM CreditCardTransaction 
-             INNER JOIN Merchant ON Merchant.MerchantId = MerchantOrder.MerchantId
-             WHERE 
-             MerchantKey = merchantKey
-             AND CrediCardTransactionKey = @CreditCardTransactionKey";
+            INNER JOIN Merchant ON Merchant.MerchantId = MerchantOrder.MerchantId
+            WHERE 
+            MerchantKey = merchantKey
+            AND CrediCardTransactionKey = @CreditCardTransactionKey";
+
+
+        private const string GET_CREDITCARDTRANSACTIONDATA_QUERY = 
+            @"SELECT
+            CreditCardTransactionKey, CreditCardTransactionStatusEnum, InstantBuyKey, 
+            UniqueSequentialNumber, AmountInCents, AuthorizedAmountInCents, CapturedAmountInCents 
+            VoidedInCents, RefundedAmountInCents 
+            FROM CreditCardTransaction
+            INNER JOIN CreditCard ON CreditCard.CreditCardId = CreditCardTransaction.CreditCardId
+            WHERE
+            MerchantOrderId = @MerchantOrderId";
 
         public TestRepository() {
             utility = IocFactory.Resolve<IConfigurationUtility>();
@@ -34,17 +46,32 @@ namespace Hackaton.Core.Repository {
             long merchantOrderId = 0;
             using (DatabaseConnector dbConnector = new DatabaseConnector(utility.ConnectionString)) {
                 
-                dbConnector.ExecuteReader<long>(GET_MERCHANTORDERID_QUERY, new {
+              merchantOrderId = Convert.ToInt64(dbConnector.ExecuteReader<long>(GET_MERCHANTORDERID_QUERY, new {
                     CreditCardTransactionKey = creditCardTransactionKey,
                     MerchantKey = merchantKey
-                });
+                }));
             }
 
             return merchantOrderId;
         }
 
-        public void GetCreditCardTransactionData(long merchantOrderId) {
-            
+        /// <summary>
+        /// Obtém uma coleção de CreditCardTransactionData a partir de um merchantOrderId
+        /// </summary>
+        /// <param name="merchantOrderId"></param>
+        public List<CreditCardTransactionData> GetCreditCardTransactionData(long merchantOrderId) {
+
+            List<CreditCardTransactionData> creditCardTransactionDataCollection = new List<CreditCardTransactionData>();
+
+            using (DatabaseConnector dbConnector = new DatabaseConnector(utility.ConnectionString)) {
+
+              creditCardTransactionDataCollection =  dbConnector.ExecuteReader<CreditCardTransactionData>(GET_CREDITCARDTRANSACTIONDATA_QUERY, new {
+                    MerchantOrderId = merchantOrderId
+                    
+                }).ToList();
+            }
+
+            return creditCardTransactionDataCollection;
         }
     }
 }
