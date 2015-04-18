@@ -15,8 +15,6 @@ namespace Hackaton.Core.Tests {
 
         public TestResponse Response { get; set; }
 
-        public List<ErrorReport> ErrorReportColllection { get; set; }
-
         public override TestResponse Execute(TestRequest testRequest) {
 
 

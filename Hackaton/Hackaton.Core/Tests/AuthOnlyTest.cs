@@ -90,7 +90,7 @@ namespace Hackaton.Core.Tests {
                 AddErrorReport(this.ErrorReportColllection, "CreditCardTransactionResultCount", "O número de transações no response está errado.");
             }
             
-            else if (testRequest.InstantBuyKey != creditCardTransactionData.InstantBuyKey.ToString()) {
+            else if (testRequest.InstantBuyKey != creditCardTransactionData.InstantBuyKey.ToString().ToUpper()) {
                 AddErrorReport(this.ErrorReportColllection, "InstantBuyKey", "InstantBuyKey errado.");
             }
 
