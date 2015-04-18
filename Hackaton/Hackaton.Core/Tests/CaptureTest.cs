@@ -19,41 +19,22 @@ namespace Hackaton.Core.Tests {
 
         public override TestResponse Execute(TestRequest testRequest) {
 
-            TestRepository repository = new TestRepository();
+
 
             if (testRequest.TestStep == "1") {
 
-                MerchantOrderId = repository.GetMerchantOrderId(Guid.Parse(testRequest.TransactionKey), Guid.Parse(testRequest.MerchantKey));
-
-                if (MerchantOrderId > 0) {
-
-                    CreditCardTransactionDataCollection = repository.GetCreditCardTransactionData(MerchantOrderId);
-
-                    if (CreditCardTransactionDataCollection.Any() == true) {
-
-                        Response = this.VerifyFirstStep(CreditCardTransactionDataCollection, testRequest);
-                    }
-                    else {
-                        ErrorReport report = new ErrorReport();
-
-                        report.FieldName = "";
-                        report.Message = "Erro ao buscar as transações do pedido.";
-
-                        ErrorReportColllection.Add(report);
-                    }
-                }
-                else {
-                    ErrorReport report = new ErrorReport();
-
-                    report.FieldName = "TransactionKey";
-                    report.Message = "Não existe pedido para essa transação.";
-                    ErrorReportColllection.Add(report);
+                if (Validate(testRequest) == true) {
+                    Response = this.VerifyFirstStep(CreditCardTransactionDataCollection, testRequest);
                 }
 
             }
             else if (testRequest.TestStep == "2") {
 
+                if (Validate(testRequest) == true) {
+                    Response = this.VerifySecondStep(CreditCardTransactionDataCollection, testRequest);
+                }
             }
+
 
 
             return Response;
@@ -70,6 +51,44 @@ namespace Hackaton.Core.Tests {
 
             TestResponse response = new TestResponse();
             return response;
+        }
+
+        public bool Validate(TestRequest testRequest) {
+
+            bool sucess = false;
+
+            TestRepository repository = new TestRepository();
+
+            MerchantOrderId = repository.GetMerchantOrderId(Guid.Parse(testRequest.TransactionKey), Guid.Parse(testRequest.MerchantKey));
+
+            if (MerchantOrderId > 0) {
+
+                CreditCardTransactionDataCollection = repository.GetCreditCardTransactionData(MerchantOrderId);
+
+                if (CreditCardTransactionDataCollection.Any() == true) {
+
+                    sucess = true;
+
+                }
+                else {
+                    ErrorReport report = new ErrorReport();
+
+                    report.FieldName = "";
+                    report.Message = "Erro ao buscar as transações do pedido.";
+
+                    ErrorReportColllection.Add(report);
+                }
+            }
+            else {
+                ErrorReport report = new ErrorReport();
+
+                report.FieldName = "TransactionKey";
+                report.Message = "Não existe pedido para essa TransactionKey.";
+                ErrorReportColllection.Add(report);
+            }
+
+            return sucess;
+
         }
     }
 }
