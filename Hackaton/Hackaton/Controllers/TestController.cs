@@ -30,14 +30,7 @@ namespace Hackaton.Controllers {
 
             testResponse = testFactory.TestProcessor(testRequest);
 
-            if (testResponse.Success == false) {
-
-                testResponse.ErrorReportCollection.Add(new ErrorReport {
-                    Message = "Error while processing your request",
-                    FieldName = "Success"
-                });
-                return this.Request.CreateResponse<TestResponse>(testResponse);
-            }
+            
 
             return this.Request.CreateResponse<TestResponse>(testResponse);
         }

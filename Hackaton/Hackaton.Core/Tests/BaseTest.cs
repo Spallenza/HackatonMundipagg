@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 namespace Hackaton.Core.Tests {
    public abstract class BaseTest : ITest {
 
+       public BaseTest() {
+           this.ErrorReportColllection = new List<ErrorReport>();
+       }
        public string GetTestId() {
            throw new NotImplementedException();
        
@@ -19,5 +22,7 @@ namespace Hackaton.Core.Tests {
        public abstract TestResponse VerifyFirstStep(List<CreditCardTransactionData> creditCardTransactionData, TestRequest testRequest);
 
        public abstract TestResponse VerifySecondStep(List<CreditCardTransactionData> creditCardTransactionData, TestRequest testRequest);
+
+       public List<ErrorReport> ErrorReportColllection { get; set; }
    }
 }

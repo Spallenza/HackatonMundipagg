@@ -51,14 +51,14 @@ namespace Hackaton.Core.Tests {
                 AddErrorReport(this.ErrorReportColllection, "TransactionReference", "TransactionReference está errado.");
             }
 
-            else if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents) {
+            else if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents.ToString()) {
                 AddErrorReport(this.ErrorReportColllection, "AmountInCents", "AmountInCents está errado.");
             }
 
-            else if (testRequest.AuthorizedAmountInCents != creditCardTransactionData.AuthorizedAmountInCents) {
+            else if (testRequest.AuthorizedAmountInCents != creditCardTransactionData.AuthorizedAmountInCents.ToString()) {
                 AddErrorReport(this.ErrorReportColllection, "AuthorizedAmountInCents", "AuthorizedAmountInCents está errado.");
             }
-            else if (testRequest.CapturedAmountInCents != creditCardTransactionData.CapturedAmountInCents) {
+            else if (testRequest.CapturedAmountInCents != creditCardTransactionData.CapturedAmountInCents.ToString()) {
                 AddErrorReport(this.ErrorReportColllection, "CapturedAmountInCents", "CapturedAmountInCents está errado.");
             }
             else if (testRequest.CreditCardTransactionStatusEnum != creditCardTransactionData.CreditCardTransactionStatusEnum) {
@@ -72,6 +72,8 @@ namespace Hackaton.Core.Tests {
             else {
                 response.Success = true;
             }
+
+            response.ErrorReportCollection = this.ErrorReportColllection;
             return response;
         }
 
@@ -81,15 +83,15 @@ namespace Hackaton.Core.Tests {
 
             CreditCardTransactionData creditCardTransactionData = creditCardTransactionDataCollection.LastOrDefault();
 
-            if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents) {
+            if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents.ToString()) {
                 AddErrorReport(this.ErrorReportColllection, "AmountInCents", "AmountInCents está errado.");
             }
 
-            else if (testRequest.AuthorizedAmountInCents != creditCardTransactionData.AuthorizedAmountInCents) {
+            else if (testRequest.AuthorizedAmountInCents != creditCardTransactionData.AuthorizedAmountInCents.ToString()) {
                 AddErrorReport(this.ErrorReportColllection, "AuthorizedAmountInCents", "AuthorizedAmountInCents está errado.");
             }
 
-            else if (testRequest.CapturedAmountInCents != creditCardTransactionData.CapturedAmountInCents) {
+            else if (testRequest.CapturedAmountInCents != creditCardTransactionData.CapturedAmountInCents.ToString()) {
                 AddErrorReport(this.ErrorReportColllection, "CapturedAmountInCents", "CapturedAmountInCents está errado.");
             }
 
@@ -97,7 +99,7 @@ namespace Hackaton.Core.Tests {
                 AddErrorReport(this.ErrorReportColllection, "CreditCardTransactionResultCount", "O número de transações no response está errado.");
             }
 
-            else if (testRequest.InstantBuyKey != creditCardTransactionData.InstantBuyKey) {
+            else if (testRequest.InstantBuyKey != creditCardTransactionData.InstantBuyKey.ToString()) {
                 AddErrorReport(this.ErrorReportColllection, "InstantBuyKey", "InstantBuyKey errado.");
             }
 
@@ -117,6 +119,8 @@ namespace Hackaton.Core.Tests {
             else {
                 response.Success = true;
             }
+
+            response.ErrorReportCollection = this.ErrorReportColllection;
             return response;
         }
 

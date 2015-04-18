@@ -51,7 +51,7 @@ namespace Hackaton.Core.Tests {
                 AddErrorReport(this.ErrorReportColllection, "TransactionReference", "TransactionReference está errado.");
             }
 
-            else if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents) {
+            else if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents.ToString()) {
                 AddErrorReport(this.ErrorReportColllection, "AmountInCents", "AmountInCents está errado.");
             }
 
@@ -69,6 +69,8 @@ namespace Hackaton.Core.Tests {
             else {
                 response.Success = true;
             }
+            
+            response.ErrorReportCollection = this.ErrorReportColllection;
             return response;
         }
 
@@ -78,7 +80,7 @@ namespace Hackaton.Core.Tests {
 
             CreditCardTransactionData creditCardTransactionData = creditCardTransactionDataCollection.LastOrDefault();
 
-            if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents) {
+            if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents.ToString()) {
                 AddErrorReport(this.ErrorReportColllection, "AmountInCents", "AmountInCents está errado.");
             }
 
@@ -102,6 +104,8 @@ namespace Hackaton.Core.Tests {
             else {
                 response.Success = true;
             }
+
+            response.ErrorReportCollection = this.ErrorReportColllection;
             return response;
         }
 

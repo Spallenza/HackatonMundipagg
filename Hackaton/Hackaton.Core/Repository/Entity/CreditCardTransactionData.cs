@@ -20,7 +20,7 @@ namespace Hackaton.Core.Repository.Entity {
         /// <summary>
         /// Chave da transação
         /// </summary>
-        public string TransactionKey { get; set; }
+        public Guid TransactionKey { get; set; }
 
         /// <summary>
         /// Status da transação
@@ -35,7 +35,7 @@ namespace Hackaton.Core.Repository.Entity {
         /// <summary>
         /// InstantBuyKey
         /// </summary>
-        public string InstantBuyKey { get; set; }
+        public Guid InstantBuyKey { get; set; }
 
         /// <summary>
         /// NSU
@@ -45,17 +45,17 @@ namespace Hackaton.Core.Repository.Entity {
         /// <summary>
         /// Valor da transação.
         /// </summary>
-        public string AmountInCents { get; set; }
+        public long AmountInCents { get; set; }
 
         /// <summary>
         /// Valor autorizado
         /// </summary>
-        public string AuthorizedAmountInCents { get; set; }
+        public long AuthorizedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor Capturado
         /// </summary>
-        public string CapturedAmountInCents { get; set; }
+        public long CapturedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor cancelado
