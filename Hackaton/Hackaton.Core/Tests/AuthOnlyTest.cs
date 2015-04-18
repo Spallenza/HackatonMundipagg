@@ -48,15 +48,15 @@ namespace Hackaton.Core.Tests {
             CreditCardTransactionData creditCardTransactionData = creditCardTransactionDataCollection.LastOrDefault();
 
             if (testRequest.TransactionReference != creditCardTransactionData.TransactionReference) {
-                AddErrorReport(this.ErrorReportColllection, "TransactionKey", "Não existe pedido para essa TransactionKey.");
+                AddErrorReport(this.ErrorReportColllection, "TransactionReference", "TransactionReference está errado.");
             }
 
             else if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents) {
-                AddErrorReport(this.ErrorReportColllection, "TransactionKey", "Não existe pedido para essa TransactionKey.");
+                AddErrorReport(this.ErrorReportColllection, "AmountInCents", "AmountInCents está errado.");
             }
 
             else if (testRequest.AuthorizedAmountInCents != creditCardTransactionData.AuthorizedAmountInCents) {
-                AddErrorReport(this.ErrorReportColllection, "TransactionKey", "Não existe pedido para essa TransactionKey.");
+                AddErrorReport(this.ErrorReportColllection, "AuthorizedAmountInCents", "AuthorizedAmountInCents está errado.");
             }
 
             if (this.ErrorReportColllection.Any() == true) {
@@ -76,11 +76,11 @@ namespace Hackaton.Core.Tests {
             CreditCardTransactionData creditCardTransactionData = creditCardTransactionDataCollection.LastOrDefault();
 
            if (testRequest.AmountInCents != creditCardTransactionData.AmountInCents) {
-                AddErrorReport(this.ErrorReportColllection, "TransactionKey", "Não existe pedido para essa TransactionKey.");
+               AddErrorReport(this.ErrorReportColllection, "AmountInCents", "AmountInCents está errado.");
             }
 
             else if (testRequest.AuthorizedAmountInCents != creditCardTransactionData.AuthorizedAmountInCents) {
-                AddErrorReport(this.ErrorReportColllection, "TransactionKey", "Não existe pedido para essa TransactionKey.");
+                AddErrorReport(this.ErrorReportColllection, "AuthorizedAmountInCents", "AuthorizedAmountInCents está errado.");
             }
 
             else if (testRequest.CreditCardTransactionResultCount != creditCardTransactionDataCollection.Count().ToString()) {
