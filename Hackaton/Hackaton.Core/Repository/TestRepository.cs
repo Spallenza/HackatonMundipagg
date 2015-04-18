@@ -21,11 +21,11 @@ namespace Hackaton.Core.Repository {
             AND CrediCardTransactionKey = @CreditCardTransactionKey";
 
 
-        private const string GET_CREDITCARDTRANSACTIONDATA_QUERY = 
+        private const string GET_CREDITCARDTRANSACTIONDATA_QUERY =
             @"SELECT
             CreditCardTransactionKey as TransactionKey, CreditCardTransactionStatusEnum, InstantBuyKey, CreditCardTransactionReference as TransactionReference
             UniqueSequentialNumber, AmountInCents, AuthorizedAmountInCents, CapturedAmountInCents 
-            VoidedInCents, RefundedAmountInCents 
+            VoidedInCents, RefundedAmountInCents, CreditCardOperationEnum
             FROM CreditCardTransaction
             INNER JOIN CreditCard ON CreditCard.CreditCardId = CreditCardTransaction.CreditCardId
             WHERE

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Hackaton.Core.DataContracts {
-    public  class TestRequest {
+    public class TestRequest {
 
         /// <summary>
         /// Identificador do teste
@@ -31,6 +31,11 @@ namespace Hackaton.Core.DataContracts {
         /// Referência do lojista para a transação
         /// </summary>
         public string TransactionReference { get; set; }
+
+        /// <summary>
+        /// Operação da transação
+        /// </summary>
+        public string CreditCardOperationEnum { get; set; }
 
         /// <summary>
         /// Chave da transação
@@ -66,7 +71,7 @@ namespace Hackaton.Core.DataContracts {
         /// Valor autorizado
         /// </summary>
         public string AuthorizedAmountInCents { get; set; }
-        
+
         /// <summary>
         /// Valor Capturado
         /// </summary>
@@ -75,7 +80,7 @@ namespace Hackaton.Core.DataContracts {
         /// <summary>
         /// Valor cancelado
         /// </summary>
-        public string VoidedInCents { get; set; }
+        public string VoidedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor estornado

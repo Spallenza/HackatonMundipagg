@@ -61,6 +61,9 @@ namespace Hackaton.Core.Tests {
             else if (testRequest.CapturedAmountInCents != creditCardTransactionData.CapturedAmountInCents) {
                 AddErrorReport(this.ErrorReportColllection, "CapturedAmountInCents", "CapturedAmountInCents está errado.");
             }
+            else if (testRequest.CreditCardTransactionStatusEnum != creditCardTransactionData.CreditCardTransactionStatusEnum) {
+                AddErrorReport(this.ErrorReportColllection, "CreditCardTransactionStatusEnum", "CreditCardTransactionStatusEnum errado.");
+            }
 
             if (this.ErrorReportColllection.Any() == true) {
                 response.Success = false;
@@ -100,6 +103,10 @@ namespace Hackaton.Core.Tests {
 
             else if (testRequest.UniqueSequentialNumber != creditCardTransactionData.UniqueSequentialNumber) {
                 AddErrorReport(this.ErrorReportColllection, "NSU", "NSU Errado.");
+            }
+
+            else if (testRequest.CreditCardTransactionStatusEnum != creditCardTransactionData.CreditCardTransactionStatusEnum) {
+                AddErrorReport(this.ErrorReportColllection, "CreditCardTransactionStatusEnum", "CreditCardTransactionStatusEnum errado.");
             }
 
 

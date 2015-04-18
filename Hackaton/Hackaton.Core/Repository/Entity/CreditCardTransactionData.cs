@@ -60,7 +60,7 @@ namespace Hackaton.Core.Repository.Entity {
         /// <summary>
         /// Valor cancelado
         /// </summary>
-        public string VoidedInCents { get; set; }
+        public string VoidedAmountInCents { get; set; }
 
         /// <summary>
         /// Valor estornado
