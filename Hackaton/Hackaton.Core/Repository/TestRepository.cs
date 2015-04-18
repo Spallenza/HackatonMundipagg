@@ -32,7 +32,7 @@ namespace Hackaton.Core.Repository {
         public long GetMerchantOrderId(Guid creditCardTransactionKey, Guid merchantKey) {
 
             long merchantOrderId = 0;
-            using (DatabaseConnector dbConnector = new DatabaseConnector(base.connectionString)) {
+            using (DatabaseConnector dbConnector = new DatabaseConnector(utility.ConnectionString)) {
                 
                 dbConnector.ExecuteReader<long>(GET_MERCHANTORDERID_QUERY, new {
                     CreditCardTransactionKey = creditCardTransactionKey,
