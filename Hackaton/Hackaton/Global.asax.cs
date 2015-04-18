@@ -16,5 +16,11 @@ namespace Hackaton {
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
+
+        protected void Application_BeginRequest(object sender, EventArgs e) {
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Origin", "*");
+            //Define os métodos que podem ser utilizados
+            HttpContext.Current.Response.AddHeader("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,CONFIG");
+        }
     }
 }
