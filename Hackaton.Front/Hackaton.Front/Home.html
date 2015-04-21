@@ -1,0 +1,169 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    
+
+    <title>Homologação Mundipagg</title>
+
+
+    <script>
+    $(function () {
+        $('#test1step2form').on('submit', function (e) {
+            e.preventDefault();
+            $.ajax({
+                url: 'http://localhost:31806/test',
+                type: 'POST',
+                data: $('#test1step2form').serialize(),
+                success: function (data) {
+                    $('#responsestatus').val(data);
+                    $('#subscription-confirm').modal('show');
+                }
+            });
+        });
+    });
+    </script>
+
+</head>
+
+<body role="document">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-4">
+
+                <fieldset>
+                    <legend >Homologação</legend>
+                </fieldset>
+                <fieldset>
+                    <!-- Form Name -->
+                    <legend>Teste AuthOnly</legend>
+                    Esse teste tem como objetivo validar a integração para apenas autorizar uma transação.
+                    <!-- Button -->
+                    <div class="control-group">
+                        <label class="control-label" for="btnTest"></label>
+                        <div class="controls">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#test1Modal">
+                                Começar Teste!
+                            </button>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Test1-1/2 -->
+            <form class=" form-horizontal" id="test1step2form">
+                <div class="modal fade" id="test1Modal" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Teste de autorização 1/2</h4>
+                            </div>
+
+                            <div class="modal-body">
+                                <p>
+                                    Crie uma transação com os seguintes valores e depois informa a chave da transação criada.
+                                    <ul class="list-group">
+                                        <li class="list-group-item">TransactionReference: '58695c49-f56c-453e-a';</li>
+                                        <li class="list-group-item">AmountInCents: '20000'; (R$200,00)</li>
+                                        <li class="list-group-item">InstallmentCount: '10'; (R$200,00)</li>
+                                    </ul>
+                                </p>
+
+                                <!-- Chave-->
+                                <div class="control-group">
+                                    <label class="control-label" for="textinput">Chave da Transação</label>
+                                    <div class="controls">
+                                        <input id="TransactionKey" name="TransactionKey" type="text" placeholder="CreditCardTransactionKey" class="input-xlarge">
+                                    </div>
+                                </div>
+
+                                <!-- merchantKey-->
+                                <div class="control-group">
+                                    <label class="control-label" for="textinput">Chave da Loka</label>
+                                    <div class="controls">
+                                        <input id="merchantKey" name="merchantKey" type="text" placeholder="CreditCardTransactionKey" class="input-xlarge">
+                                    </div>
+                                </div>
+
+                                <!-- TestId-->
+                                <div class="control-group">
+                                    <label class="control-label" for="textinput">Id do Teste</label>
+                                    <div class="controls">
+                                        <input id="TestId" name="TestId" type="text" placeholder="CreditCardTransactionKey" class="input-xlarge">
+                                    </div>
+                                </div>
+
+                                <!-- testStep-->
+                                <div class="control-group">
+                                    <label class="control-label" for="textinput">Etapa do teste</label>
+                                    <div class="controls">
+                                        <input id="testStep" name="testStep" type="text" placeholder="CreditCardTransactionKey" class="input-xlarge">
+                                    </div>
+                                </div>
+
+                                <!-- AuthorizedAmountInCents-->
+                                <div class="control-group">
+                                    <label class="control-label" for="textinput">Valor autorizado</label>
+                                    <div class="controls">
+                                        <input id="AuthorizedAmountInCents" name="AuthorizedAmountInCents" type="text" placeholder="CreditCardTransactionKey" class="input-xlarge">
+                                    </div>
+                                </div>
+
+                                <!-- CreditCardTransactionStatusEnum-->
+                                <div class="control-group">
+                                    <label class="control-label" for="textinput">Status da transação</label>
+                                    <div class="controls">
+                                        <input id="CreditCardTransactionStatusEnum" name="CreditCardTransactionStatusEnum" type="text" placeholder="CreditCardTransactionKey" class="input-xlarge">
+                                    </div>
+                                </div>
+
+                                <!-- TransactionReference-->
+                                <div class="control-group">
+                                    <label class="control-label" for="textinput">TransactionReference</label>
+                                    <div class="controls">
+                                        <input id="TransactionReference" name="TransactionReference" type="text" placeholder="CreditCardTransactionKey" class="input-xlarge">
+                                    </div>
+                                </div>
+
+                                <!-- AmountInCents-->
+                                <div class="control-group">
+                                    <label class="control-label" for="textinput">Valor</label>
+                                    <div class="controls">
+                                        <input id="AmountInCents" name="AmountInCents" type="text" placeholder="CreditCardTransactionKey" class="input-xlarge">
+                                    </div>
+                                </div>
+
+                                <!-- InstallmentCount-->
+                                <div class="control-group">
+                                    <label class="control-label" for="textinput">parcelas</label>
+                                    <div class="controls">
+                                        <input id="InstallmentCount" name="InstallmentCount" type="text" placeholder="CreditCardTransactionKey" class="input-xlarge">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-info btn-lg" data-toggle="modal" data-target="#test1Modal">Enviar</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- EndTest1-1/2 -->
+            </form>
+        </div>
+    </div>
+</body>
+</html>
